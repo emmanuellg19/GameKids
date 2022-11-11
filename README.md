@@ -4,5 +4,5 @@ Proyecto de Desarrollo de Aplicaciones para Aplicaciones Móviles
 # Actualizaciones
 Version inicial
 
-#Autor: 
+# Autor: 
 Emmanuel Lopez Gonzalez
