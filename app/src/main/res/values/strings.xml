@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">GameKids</string>
+    <string name="salir">Salir</string>
+    <string name="action_settings">Settings</string>
+    <string name="memoria">Memoria</string>
+    <string name="dibujar">Dibujar</string>
+
+    <string name="reiniciar">Reiniciar</string>
+    <string name="puntuacion">Puntuación: </string>
+
+    <string name="start_new">Nuevo</string>
+    <string name="brush">Pincel</string>
+    <string name="erase">Borrador</string>
+    <string name="save">Guardar</string>
+    <string name="paint">Pintar</string>
+
+    <string name="sml">Pequeño</string>
+    <string name="med">Mediano</string>
+    <string name="lrg">Grande</string>
+
+
+</resources>
