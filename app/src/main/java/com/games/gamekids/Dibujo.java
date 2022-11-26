@@ -19,7 +19,7 @@ public class Dibujo extends AppCompatActivity implements OnClickListener{
     //custom drawing view
     private vistaDibujo drawView;
     //buttons
-    private ImageButton currPaint, drawBtn, eraseBtn, newBtn, saveBtn;
+    private ImageButton currPaint, drawBtn, eraseBtn, newBtn, saveBtn,salir_me;
     //sizes
     private float smallBrush, mediumBrush, largeBrush;
 
@@ -59,6 +59,9 @@ public class Dibujo extends AppCompatActivity implements OnClickListener{
         //save button
         saveBtn = (ImageButton)findViewById(R.id.save_btn);
         saveBtn.setOnClickListener(this);
+
+        salir_me = (ImageButton)findViewById(R.id.salir_me);
+        salir_me.setOnClickListener(this);
     }
 
     @Override
@@ -212,6 +215,41 @@ public class Dibujo extends AppCompatActivity implements OnClickListener{
             saveDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener(){
                 public void onClick(DialogInterface dialog, int which){
                     dialog.cancel();
+                }
+            });
+            saveDialog.show();
+        }else if(view.getId()==R.id.salir_me){
+            //save drawing
+            AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
+            saveDialog.setTitle("Salir");
+            saveDialog.setMessage("¿Deseas guardar el dibujo en tu galeria?");
+            saveDialog.setPositiveButton("Si", new DialogInterface.OnClickListener(){
+                public void onClick(DialogInterface dialog, int which){
+                    //save drawing
+                    drawView.setDrawingCacheEnabled(true);
+                    //attempt to save
+                    String imgSaved = MediaStore.Images.Media.insertImage(
+                            getContentResolver(), drawView.getDrawingCache(),
+                            UUID.randomUUID().toString()+".png", "drawing");
+                    //feedback
+                    if(imgSaved!=null){
+                        Toast savedToast = Toast.makeText(getApplicationContext(),
+                                "¡Dibujo guardado en la galeria!", Toast.LENGTH_SHORT);
+                        savedToast.show();
+                    }
+                    else{
+                        Toast unsavedToast = Toast.makeText(getApplicationContext(),
+                                "Oops! No pudimos guardar tu dibujo", Toast.LENGTH_SHORT);
+                        unsavedToast.show();
+                    }
+                    drawView.destroyDrawingCache();
+                }
+            });
+            saveDialog.setNegativeButton("NO", new DialogInterface.OnClickListener(){
+                public void onClick(DialogInterface dialog, int which){
+                    finish();
+                    dialog.cancel();
+
                 }
             });
             saveDialog.show();

@@ -4,7 +4,7 @@
     <string name="action_settings">Settings</string>
     <string name="memoria">Memoria</string>
     <string name="dibujar">Dibujar</string>
-
+    <string name="puzzle">Rompecabezas</string>
     <string name="reiniciar">Reiniciar</string>
     <string name="puntuacion">Puntuación: </string>
 

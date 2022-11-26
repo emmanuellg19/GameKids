@@ -35,6 +35,17 @@
         android:layout_marginBottom="10dp" />
 
     <Button
+        android:id="@+id/botonRompecabezas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/puzzle" />
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/salir"

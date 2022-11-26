@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button botonMemoria, botonSalir,botonDibujar;
+    Button botonMemoria, botonSalir,botonDibujar, botonRompecabezas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         botonMemoria = (Button) findViewById(R.id.botonMemoria);
         botonSalir = (Button) findViewById(R.id.botonSalir);
         botonDibujar = (Button) findViewById(R.id.botonDibujar);
+        botonRompecabezas= (Button) findViewById(R.id.botonRompecabezas);
 
         botonMemoria.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dibujar();
+            }
+        });
+
+        botonRompecabezas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rompecabezas();
             }
         });
 
@@ -71,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void dibujar(){
         Intent i = new Intent(this, Dibujo.class);
+        startActivity(i);
+    }
+
+    public void rompecabezas(){
+        Intent i = new Intent(this, Puzzle.class);
         startActivity(i);
     }
 }
